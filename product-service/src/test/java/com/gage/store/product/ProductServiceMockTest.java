@@ -20,23 +20,20 @@ import com.gage.store.product.service.ProductoServicioImp;
 @SpringBootTest
 public class ProductServiceMockTest {
 
-	@Mock
-	ProductoRepositorio repositorio;
+	ProductoRepositorio repositorioMock=Mockito.mock(ProductoRepositorio.class);
 
 	ProductoServicio servicio;
 
-	@SuppressWarnings("deprecation")
 	@BeforeEach
 	public void setup() {
 
-		MockitoAnnotations.initMocks(this);
-		servicio = new ProductoServicioImp(repositorio);
+		servicio = new ProductoServicioImp(repositorioMock);
 
 		Producto prod = Producto.builder().categoria(Categoria.builder().codTipo(1).build()).descripcion("linterna")
 				.precioCompra(new BigDecimal(5.5)).precioVenta(new BigDecimal(10)).existencia(100).build();
 
-		Mockito.when(repositorio.findById(1)).thenReturn(Optional.of(prod));
-		Mockito.when(repositorio.save(prod)).thenReturn(prod);
+		Mockito.when(repositorioMock.findById(1)).thenReturn(Optional.of(prod));
+		Mockito.when(repositorioMock.save(prod)).thenReturn(prod);
 	}
 
 	@Test
