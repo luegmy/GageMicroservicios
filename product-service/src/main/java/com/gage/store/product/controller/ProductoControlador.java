@@ -39,6 +39,7 @@ public class ProductoControlador {
 	@GetMapping
 	public ResponseEntity<List<Producto>> listarProductos(
 			@RequestParam(name = "categoria", required = false) Integer categoria) {
+		
 		List<Producto> lista = new ArrayList<>();
 		if (null == categoria) {
 			lista = servicio.listarProducto();
