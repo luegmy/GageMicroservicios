@@ -43,12 +43,6 @@ public class ProductRepositoryTest {
 		Assertions.assertThat(prod.getDescripcion()).isEqualTo("martillo");
 	}
 
-	@Test
-	public void whenFindByCategryThenReturnListProduct() {
-
-		List<Producto> lista = repositorio.findByCategoria(Categoria.builder().codTipo(1).build());
-		Assertions.assertThat(lista.size()).isEqualByComparingTo(1);
-	}
 
 	@Test
 	public void whenUpdateProductoThenReturnProductDescription() {
@@ -70,11 +64,18 @@ public class ProductRepositoryTest {
 
 		repositorio.deleteById(1);
 
-		boolean notExistAfterDelete = repositorio.findById(2).isPresent();
+		boolean notExistAfterDelete = repositorio.findById(1).isPresent();
 
 		Assertions.assertThat(isExistBeforeDelete).isTrue();
 		Assertions.assertThat(notExistAfterDelete).isFalse();
 
+	}
+	
+	@Test
+	public void whenFindByCategryThenReturnListProduct() {
+
+		List<Producto> lista = repositorio.findByCategoria(Categoria.builder().codTipo(1).build());
+		Assertions.assertThat(lista.size()).isEqualByComparingTo(1);
 	}
 
 }
