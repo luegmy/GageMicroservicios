@@ -37,24 +37,9 @@ public class ProductoControlador {
 	ProductoServicio servicio;
 
 	@GetMapping
-	public ResponseEntity<List<Producto>> listarProductos(
-			@RequestParam(name = "categoria", required = false) Integer categoria) {
-		
-		List<Producto> lista = new ArrayList<>();
-		if (null == categoria) {
-			lista = servicio.listarProducto();
-			if (lista.isEmpty()) {
-				return ResponseEntity.noContent().build();
-			}
+	public ResponseEntity<List<Producto>> listarProductos() {
 
-		} else {
-			lista = servicio.listarProductoPorCategoria(Categoria.builder().codTipo(categoria).build());
-			if (lista.isEmpty()) {
-				return ResponseEntity.notFound().build();
-			}
-		}
-
-		return ResponseEntity.ok(lista);
+		return ResponseEntity.ok(servicio.listarProducto());
 	}
 
 	@GetMapping("/{codProducto}")

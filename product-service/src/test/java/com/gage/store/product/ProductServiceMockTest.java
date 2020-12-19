@@ -37,6 +37,7 @@ public class ProductServiceMockTest {
 
 		List<Producto> listaProductos = Arrays.asList(prod, prod2);
 
+		//comportamientos predecibles de la dependecnia
 		Mockito.when(repositorioMock.findById(1)).thenReturn(Optional.of(prod));
 		Mockito.when(repositorioMock.findById(2)).thenReturn(Optional.of(prod2));
 		Mockito.when(repositorioMock.save(prod)).thenReturn(prod);
