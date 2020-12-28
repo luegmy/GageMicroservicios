@@ -6,4 +6,7 @@ spring:
     uri: http://localhost:8090
     username: root
     password: s3cr3t
+    
+server:
+  port: 8091
    
