@@ -8,15 +8,15 @@
 		<version>2.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.gage.store</groupId>
+	<groupId>com.gage.store.config</groupId>
 	<artifactId>config-service</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>config-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>2020.0.0-RC1</spring-cloud.version>
+		<spring-cloud.version>2020.0.0</spring-cloud.version>
 	</properties>
 
 	<dependencies>
